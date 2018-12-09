@@ -1,0 +1,13 @@
+#footer img{
+    width: 300px;
+    height: 200px;
+}
+#showLeft{
+    display: inline-block;
+    vertical-align: top;
+}
+#showRight{
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 30px;
+}

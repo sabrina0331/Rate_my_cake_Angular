@@ -1,0 +1,12 @@
+<div id="footer" *ngIf="showCake.imageUrl != null">
+        <h3>Baked by: {{showCake.baker}}</h3><br>
+      <div id="showLeft">
+        <img id="showOnePic" src="{{ showCake.imageUrl}}" alt="this is a cake pic">
+      </div>
+      <div id="showRight">
+        <div *ngFor="let c of showCake.rating" >
+          <p>{{c.comment}}</p>
+          <p>{{c.rating}}</p>
+        </div>
+      </div> 
+ </div> 
