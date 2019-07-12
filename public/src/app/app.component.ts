@@ -11,7 +11,7 @@ export class AppComponent {
   newCake: any;
   rating: any;
   cake: any =[];
-  // show = false;
+  errors: any;
 
 
 constructor(private _httpService: HttpService){
@@ -33,6 +33,9 @@ showAllCakes(){
 createCake(){
   let add = this._httpService.addCake(this.newCake);
   add.subscribe(data=> {
+    if(data['errors']){
+      this.errors = data['errors']
+    }
     this.newCake = {baker: "", imageUrl: ""}
     this.showAllCakes();
   })

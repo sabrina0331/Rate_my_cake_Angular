@@ -1,3 +1,6 @@
+<div *ngIf="errors">
+  {{ errors.baker.message | json}}
+</div>
 <div style="text-align:left">
   <h1>Rate my cakes</h1>
 </div>
@@ -6,7 +9,14 @@
     <div id="newCake">
       <h4>Submit a cake to be rated</h4>
       <form (submit)="createCake()">
-        Baker name: <input type="text" name="newCake.baker" [(ngModel)]="newCake.baker"/><br>
+        Baker name: <input type="text" name="baker" 
+        required 
+        minlength="4"  
+        [(ngModel)]="newCake.baker"  
+        #baker="ngModel"/>
+        <div *ngIf="!baker.valid">
+          <p>Baker name cannot be empty</p>
+        </div> <br>
         Image url: <input type="text" name="newCake.imageUrl" [(ngModel)]="newCake.imageUrl"/><br>
         <input type="submit" value="SUBMIT" id="submitB1"/>
       </form>

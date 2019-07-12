@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/rate_my_cakes');
+mongoose.connect('mongodb://localhost/rate_my_cakes',{ useNewUrlParser: true });
 
 const RateSchema = new mongoose.Schema({
     rating: {type: Number, required: true},
@@ -7,7 +7,7 @@ const RateSchema = new mongoose.Schema({
     {timestamps: true});
 
 const CakeSchema = new mongoose.Schema({
-    baker: {type: String},
+    baker: {type: String, minlength:[2, "baker name should have at least 2 chars"]},
     imageUrl: {type: String},
     rating: [RateSchema],
 },
